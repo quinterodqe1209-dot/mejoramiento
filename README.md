@@ -1,1 +1,31 @@
-# mejoramiento
+# mejoramiento# 
+
+> Panel de gestión de tienda tecnológica
+
+## Descripción
+
+ZDtecnoc es una aplicación web full stack para administrar el inventario y las ventas de una tienda de accesorios y equipos de cómputo. Permite gestionar usuarios, categorías, productos, clientes y pedidos, además de visualizar indicadores mediante gráficos y generar reportes en PDF.
+
+Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desarrollo de Software (ADSI) — SENA.
+
+## Estado del proyecto
+
+🚧 En construcción — este proyecto se desarrolla día a día durante 15 días. Este README se actualiza con cada avance.
+
+- [x] Día 1: fundamentos de color, estructura del repositorio
+- [ ] Día 2: definición de marca, logo y paleta de colores
+- [ ] Día 3: HTML5 semántico
+- [ ] Día 4: CSS y modelo de caja
+- [ ] Día 5: maquetación con Flexbox y Grid
+- [ ] Día 6: diseño responsive
+- [ ] Día 7: JavaScript desde cero
+- [ ] Día 8: DOM, eventos y validación
+- [ ] Día 9: PHP y conexión a base de datos
+- [ ] Día 10: inicio de sesión seguro
+- [ ] Día 11: sesiones y control de acceso por roles
+- [ ] Día 12: dashboard con menú lateral
+- [ ] Día 13: CRUD completo
+- [ ] Día 14: vistas SQL y gráficos con Chart.js
+- [ ] Día 15: reportes y sustentación final
+
+## Estructura del proyecto
