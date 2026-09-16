@@ -13,7 +13,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 🚧 En construcción — este proyecto se desarrolla día a día durante 15 días. Este README se actualiza con cada avance.
 
 - [x] Día 1: fundamentos de color, estructura del repositorio
-- [ ] Día 2: definición de marca, logo y paleta de colores
+- [x] Día 2: definición de marca, logo y paleta de colores
 - [ ] Día 3: HTML5 semántico
 - [ ] Día 4: CSS y modelo de caja
 - [ ] Día 5: maquetación con Flexbox y Grid
@@ -29,3 +29,16 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [ ] Día 15: reportes y sustentación final
 
 ## Estructura del proyecto
+
+```text
+mejoramiento/
+├── assets/
+│   └── img/
+│       ├── logo.png
+│       └── logo.svg
+├── bitacora/
+│   ├── evidencia del dia 1.pdf
+│   └── evidencia del dia 2.md
+├── css/
+│   └── tokens.css
+└── README.md

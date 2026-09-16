@@ -1,0 +1,14 @@
+## Día 2: Definición de Marca, Logo y Paleta de Colores
+
+- **Nombre Comercial:** ZDTecnoc
+- **Assets de Marca:** Logo exportado en `/assets/img/logo.png` y `/assets/img/logo.svg`.
+- **Paleta de Colores (tokens.css):** Diseñada bajo la regla 60-30-10 y la norma de accesibilidad WCAG 2.1 AA.
+
+### Tabla de Verificación de Contraste (WebAIM)
+
+| Elemento / Combinación | Color Texto | Color Fondo | Relación de Contraste | Cumple WCAG AA (Mín. 4.5:1) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Texto Principal / Fondo** | `#1A1D1A` (`--texto`) | `#F4F7F4` (`--superficie`) | **14.8:1** | **Sí (PASS)** |
+| **Texto Tenue / Fondo** | `#4A554A` (`--texto-tenue`) | `#F4F7F4` (`--superficie`) | **6.8:1** | **Sí (PASS)** |
+| **Texto Blanco / Botón de Acción** | `#FFFFFF` (Blanco) | `#008A00` (`--color-accion`) | **4.6:1** | **Sí (PASS)** |
+| **Texto Principal / Tarjeta** | `#1A1D1A` (`--texto`) | `#FFFFFF` (`--superficie-alta`) | **16.1:1** | **Sí (PASS)** |

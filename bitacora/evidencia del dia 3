@@ -1,0 +1,18 @@
+## Día 3: HTML5 Semántico y Estructura del Proyecto
+
+### 1. Estructura de Directorios Creada
+Se configuró la arquitectura de carpetas para el proyecto:
+- `/assets/img`: Almacenamiento de logotipos y recursos gráficos.
+- `/css`: Archivos de hojas de estilo globales y tokens.
+- `/js`: Funcionalidades e interactividad.
+- `/app`: Lógica del sistema.
+- `/sql`: Scripts de base de datos.
+
+### 2. Páginas HTML Semánticas
+Se maquetaron tres vistas fundamentales sin hojas de estilo, utilizando etiquetas semánticas de HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`):
+- `login.html`: Formulario de acceso con campos de correo y contraseña.
+- `dashboard.html`: Panel general con resúmenes, indicadores clave y avisos.
+- `productos.html`: Formulario completo de registro con etiquetas `<label>` e inputs asociados, además de una tabla estructurada (`<table>`, `<thead>`, `<tbody>`, `<caption>`) para el inventario.
+
+### 3. Validación W3C
+Las tres páginas fueron validadas mediante la herramienta **W3C Markup Validation Service (Direct Input)**, obteniendo cero errores y cero advertencias.

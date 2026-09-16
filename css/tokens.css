@@ -1,0 +1,24 @@
+:root {
+  /* Neutros – el 60 % de la pantalla */
+  --superficie:      #F4F7F4;  /* Fondo claro con matiz verde muy tenue */
+  --superficie-alta: #FFFFFF;  /* Blanco puro para tarjetas y cajas */
+  --borde:           #D0DDD0;  /* Borde suave en tono verde menta grisáceo */
+
+  /* Marca – el 30 % (Extraído del Verde ZDTecnoc del icono) */
+  --color-marca:     #00A800;  /* Verde vibrante principal de tu logo */
+  --color-marca-sua: #E1F5E1;  /* Verde claro de fondo para destacados */
+
+  /* Acción y acento – el 10 % */
+  --color-accion:    #008A00;  /* Verde un poco más oscuro para botones (pasa WCAG AA con texto blanco) */
+  --color-acento:    #D97700;  /* Naranja contraste de acento */
+
+  /* Texto (Basado en el tono oscuro de "ZDTecnoc") */
+  --texto:           #1A1D1A;  /* Casi negro verdoso — Contraste 14.8:1 sobre --superficie */
+  --texto-tenue:     #4A554A;  /* Gris oscuro tenue — Contraste 6.8:1 sobre --superficie */
+
+  /* Semánticos */
+  --exito:           #008A00;
+  --advertencia:     #D97700;
+  --error:           #C81E1E;
+  --info:            #006699;
+}

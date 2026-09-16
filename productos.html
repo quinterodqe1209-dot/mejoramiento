@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZDTecnoc - Gestión de Productos</title>
+</head>
+<body>
+
+  <header>
+    <h1>ZDTecnoc - Productos</h1>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="dashboard.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="login.html">Cerrar Sesión</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Registrar Nuevo Producto</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="codigo">Código:</label>
+          <input type="text" id="codigo" name="codigo" required>
+        </div>
+        <div>
+          <label for="nombre">Nombre del Producto:</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+          <label for="categoria">Categoría:</label>
+          <select id="categoria" name="categoria">
+            <option value="accesorios">Accesorios</option>
+            <option value="computo">Equipos de Cómputo</option>
+          </select>
+        </div>
+        <div>
+          <label for="precio">Precio ($):</label>
+          <input type="number" id="precio" name="precio" step="0.01" required>
+        </div>
+        <div>
+          <label for="stock">Stock Inicial:</label>
+          <input type="number" id="stock" name="stock" required>
+        </div>
+        <button type="submit">Guardar Producto</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Productos</h2>
+      <table>
+        <caption>Inventario de Accesorios y Cómputo</caption>
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PROD-001</td>
+            <td>Mouse Gamer RGB</td>
+            <td>Accesorios</td>
+            <td>$25.00</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>PROD-002</td>
+            <td>Teclado Mecánico</td>
+            <td>Accesorios</td>
+            <td>$45.00</td>
+            <td>8</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ZDTecnoc. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
