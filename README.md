@@ -15,9 +15,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 1: fundamentos de color, estructura del repositorio
 - [x] Día 2: definición de marca, logo y paleta de colores
 - [x] Día 3: HTML5 semántico
-- [ ] Día 3: HTML5 semántico
-- [ ] Día 3: HTML5 semántico
-- [ ] Día 4: CSS y modelo de caja
+- [x] Día 4: CSS y modelo de caja
 - [ ] Día 5: maquetación con Flexbox y Grid
 - [ ] Día 6: diseño responsive
 - [ ] Día 7: JavaScript desde cero
@@ -31,7 +29,6 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [ ] Día 15: reportes y sustentación final
 
 ## Estructura del proyecto
-
 ```text
 mejoramiento/
 ├── assets/

@@ -1,0 +1,176 @@
+/* ==========================================================================
+   1. VARIABLES / TOKENS DE DISEÑO DE ZDTECNOC
+   ========================================================================== */
+:root {
+  /* Neutros – 60 % */
+  --superficie: #F4F7F4;
+  --superficie-alta: #FFFFFF;
+  --borde: #D0DDD0;
+
+  /* Marca – 30 % */
+  --color-marca: #00A800;
+  --color-marca-sua: #E1F5E1;
+
+  /* Acción y acento – 10 % */
+  --color-accion: #008A00;
+  --color-acento: #D97700;
+
+  /* Texto */
+  --texto: #1A1D1A;
+  --texto-tenue: #4A554A;
+
+  /* Semánticos */
+  --exito: #008A00;
+  --advertencia: #D97700;
+  --error: #C81E1E;
+  --info: #006699;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--superficie);
+  color: var(--texto);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. ESCALA TIPOGRÁFICA EN REM (5 TAMAÑOS)
+   ========================================================================== */
+.text-xs   { font-size: 0.75rem; }  /* 12px */
+.text-sm   { font-size: 0.875rem; } /* 14px */
+.text-base { font-size: 1rem; }    /* 16px */
+.text-lg   { font-size: 1.25rem; }  /* 20px */
+.text-xl   { font-size: 1.75rem; }  /* 28px */
+
+h1 { font-size: 1.75rem; font-weight: 700; }
+h2 { font-size: 1.25rem; font-weight: 600; }
+p  { font-size: 1rem; }
+
+/* ==========================================================================
+   3. PANTALLA DE LOGIN (login.html)
+   ========================================================================== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.login-card {
+  background-color: var(--superficie-alta);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header .brand-name {
+  color: var(--color-marca);
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--superficie-alta);
+  color: var(--texto);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estado visible de foco con teclado (:focus-visible) */
+.form-input:focus-visible,
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-accion);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--color-marca-sua);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-accion);
+  color: var(--superficie-alta);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-marca);
+}
+
+/* ==========================================================================
+   4. TABLA DE PRODUCTOS
+   ========================================================================== */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--borde);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.products-table thead th {
+  background-color: var(--color-marca);
+  color: var(--superficie-alta);
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.products-table tbody td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--borde);
+  color: var(--texto);
+}
+
+.products-table tbody tr:nth-child(even) {
+  background-color: var(--superficie);
+}
+
+.products-table tbody tr:hover {
+  background-color: var(--color-marca-sua);
+}

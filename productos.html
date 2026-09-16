@@ -4,86 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZDTecnoc - Gestión de Productos</title>
+  <!-- Conexión al CSS -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body style="padding: 2rem;">
 
-  <header>
-    <h1>ZDTecnoc - Productos</h1>
+  <header class="login-header" style="text-align: left; margin-bottom: 1.5rem;">
+    <span class="brand-name text-xl">ZDTecnoc</span>
+    <h1 class="text-lg">Gestión de Productos</h1>
   </header>
 
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="dashboard.html">Inicio</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="login.html">Cerrar Sesión</a></li>
+  <nav aria-label="Navegación principal" style="margin-bottom: 2rem;">
+    <ul style="display: flex; gap: 1rem; list-style: none;">
+      <li><a href="dashboard.html" class="text-sm" style="color: var(--color-accion); font-weight: 600;">Inicio</a></li>
+      <li><a href="productos.html" class="text-sm" style="color: var(--color-accion); font-weight: 600;">Productos</a></li>
+      <li><a href="login.html" class="text-sm" style="color: var(--error); font-weight: 600;">Cerrar Sesión</a></li>
     </ul>
   </nav>
 
   <main>
-    <section>
-      <h2>Registrar Nuevo Producto</h2>
+    <section class="login-card" style="max-width: 100%; margin-bottom: 2.5rem;">
+      <h2 class="text-lg" style="margin-bottom: 1rem;">Registrar Nuevo Producto</h2>
       <form action="#" method="post">
-        <div>
-          <label for="codigo">Código:</label>
-          <input type="text" id="codigo" name="codigo" required>
+        <div class="form-group">
+          <label for="codigo" class="text-sm">Código:</label>
+          <input type="text" id="codigo" name="codigo" class="form-input text-base" required>
         </div>
-        <div>
-          <label for="nombre">Nombre del Producto:</label>
-          <input type="text" id="nombre" name="nombre" required>
+        <div class="form-group">
+          <label for="nombre" class="text-sm">Nombre del Producto:</label>
+          <input type="text" id="nombre" name="nombre" class="form-input text-base" required>
         </div>
-        <div>
-          <label for="categoria">Categoría:</label>
-          <select id="categoria" name="categoria">
+        <div class="form-group">
+          <label for="categoria" class="text-sm">Categoría:</label>
+          <select id="categoria" name="categoria" class="form-input text-base">
             <option value="accesorios">Accesorios</option>
             <option value="computo">Equipos de Cómputo</option>
           </select>
         </div>
-        <div>
-          <label for="precio">Precio ($):</label>
-          <input type="number" id="precio" name="precio" step="0.01" required>
+        <div class="form-group">
+          <label for="precio" class="text-sm">Precio ($):</label>
+          <input type="number" id="precio" name="precio" step="0.01" class="form-input text-base" required>
         </div>
-        <div>
-          <label for="stock">Stock Inicial:</label>
-          <input type="number" id="stock" name="stock" required>
+        <div class="form-group">
+          <label for="stock" class="text-sm">Stock Inicial:</label>
+          <input type="number" id="stock" name="stock" class="form-input text-base" required>
         </div>
-        <button type="submit">Guardar Producto</button>
+        <button type="submit" class="btn-primary text-base" style="width: auto; padding: 0.75rem 1.5rem;">Guardar Producto</button>
       </form>
     </section>
 
     <section>
-      <h2>Listado de Productos</h2>
-      <table>
-        <caption>Inventario de Accesorios y Cómputo</caption>
-        <thead>
-          <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Categoría</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>PROD-001</td>
-            <td>Mouse Gamer RGB</td>
-            <td>Accesorios</td>
-            <td>$25.00</td>
-            <td>15</td>
-          </tr>
-          <tr>
-            <td>PROD-002</td>
-            <td>Teclado Mecánico</td>
-            <td>Accesorios</td>
-            <td>$45.00</td>
-            <td>8</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 class="text-lg" style="margin-bottom: 1rem;">Listado de Productos</h2>
+      <div class="table-container">
+        <table class="products-table">
+          <caption class="text-xs" style="caption-side: bottom; padding: 0.5rem; color: var(--texto-tenue);">Inventario de Accesorios y Cómputo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PROD-001</td>
+              <td>Mouse Gamer RGB</td>
+              <td>Accesorios</td>
+              <td>$25.00</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>PROD-002</td>
+              <td>Teclado Mecánico</td>
+              <td>Accesorios</td>
+              <td>$45.00</td>
+              <td>8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer style="margin-top: 2rem; text-align: center;" class="text-xs">
     <p>&copy; 2026 ZDTecnoc. Todos los derechos reservados.</p>
   </footer>
 
