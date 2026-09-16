@@ -1,0 +1,38 @@
+## Día 4: CSS3, Tokens de Diseño y Accesibilidad
+
+### 1. Implementación del Sistema de Estilos Base
+Se estructuró la hoja de estilos global `css/estilos.css` para el proyecto ZDTecnoc, aplicando los criterios técnicos requeridos:
+- **Tokens de Color**: Se definieron variables CSS en `:root` respetando la regla 60-30-10 con la paleta de color institucional (verde corporativo `#00A800`, verde claro `#E1F5E1` y tonos neutros).
+- **Escala Tipográfica**: Se estableció una escala de 5 tamaños utilizando unidades relativas `rem` (`.text-xs` a `.text-xl`).
+- **Navegación Accesible**: Se configuró la regla `:focus-visible` en campos de texto y botones para garantizar contraste e interactividad con el teclado.
+- **Calidad de Código**: Cero uso de la declaración `!important` y ausencia de valores hexadecimales aislados fuera de `:root`.
+
+---
+
+### 2. Estilización de Tablas de Productos
+Se aplicaron reglas de maquetación interactiva en `productos.html`:
+- Encabezado estilizado con el color de marca.
+- Filas alternas (zebra striping) con `:nth-child(even)`.
+- Estado interactivo con la pseudoclase `:hover` utilizando el token de verde claro (`--color-marca-sua`).
+
+---
+
+### 3. Evidencias Gráficas
+- **Estado Inicial (Sin Estilos)**: `../assets/img/login-antes.jpeg`
+- **Interfaz Estilizada y Validación DevTools**: `../assets/img/login-depues.jpeg`
+- **Tabla de Productos con Hover**: `../assets/img/valida-productos.jpeg`
+
+---
+
+### 4. Ejercicio de Diagnóstico (Especificidad CSS)
+
+**Predicción escrita:**
+Al evaluar las tres reglas en conflicto aplicadas sobre el botón de ingreso:
+1. `button` -> Especificidad `(0, 0, 0, 1)`
+2. `.btn-primary` -> Especificidad `(0, 0, 1, 0)`
+3. `.login-card #btn-submit` -> Especificidad `(0, 1, 1, 0)`
+
+**Resultado:** El botón aplicará el color **rojo** (`red`). 
+
+**Justificación técnica:**
+El algoritmo de cascada de CSS prioriza los identificadores únicos. El selector `.login-card #btn-submit` contiene un selector de ID (`#btn-submit`), otorgándole el peso de especificidad más alto e invalidando las reglas definidas únicamente por clase o etiqueta HTML. Comprobado y validado mediante las herramientas de desarrollo del navegador (DevTools).
