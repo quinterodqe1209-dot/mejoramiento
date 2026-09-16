@@ -1,0 +1,10 @@
+Reflexión: Uso de CSS Grid vs. Flexbox
+
+Usé CSS Grid para el diseño general (Layout): Lo utilicé en la clase .panel para armar la maqueta grande de la página (barra arriba, menú a la izquierda, contenido y pie abajo). También lo usé en .indicadores para que las tarjetas de métricas se acomoden automáticamente en filas y columnas al cambiar el tamaño de la pantalla.
+
+Usé Flexbox para los elementos internos: Lo utilicé en .panel__barra para organizar los elementos pequeños que van en una sola fila (como el título y el perfil), alineándolos fácilmente de izquierda a derecha.
+
+Por qué: Grid es ideal para estructurar cajones grandes en 2 dimensiones (filas y columnas), mientras que Flexbox es perfecto para alinear elementos pequeños en 1 sola dirección.
+
+### Evidencia Gráfica
+![Validación Dashboard Responsivo](../assets/img/valida-dashboards.jpg)

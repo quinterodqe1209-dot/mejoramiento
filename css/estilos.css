@@ -174,3 +174,62 @@ p  { font-size: 1rem; }
 .products-table tbody tr:hover {
   background-color: var(--color-marca-sua);
 }
+
+/* ==========================================================================
+   5. MAQUETACIÓN EN GRID Y FLEXBOX (Día 5)
+   ========================================================================== */
+
+/* Layout general con CSS Grid y áreas nombradas */
+.panel {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr auto;
+  grid-template-areas:
+    "barra barra"
+    "menu  contenido"
+    "pie   pie";
+  min-height: 100vh;
+}
+
+/* Barra superior fija (sticky) con Flexbox */
+.panel__barra {
+  grid-area: barra;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  background-color: var(--color-marca);
+  color: var(--superficie-alta);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Menú lateral */
+.panel__menu {
+  grid-area: menu;
+  background-color: #15231A;
+}
+
+/* Área de contenido principal */
+.panel__contenido {
+  grid-area: contenido;
+  padding: 1.6rem;
+  overflow-y: auto;
+}
+
+/* Pie de página */
+.panel__pie {
+  grid-area: pie;
+  padding: 0.8rem 1.2rem;
+  border-top: 1px solid var(--borde);
+  font-size: 0.85rem;
+  background-color: var(--superficie-alta);
+}
+
+/* Fila de tarjetas adaptables con auto-fit */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}

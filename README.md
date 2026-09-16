@@ -16,7 +16,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 2: definición de marca, logo y paleta de colores
 - [x] Día 3: HTML5 semántico
 - [x] Día 4: CSS y modelo de caja
-- [ ] Día 5: maquetación con Flexbox y Grid
+- [x] Día 5: maquetación con Flexbox y Grid
 - [ ] Día 6: diseño responsive
 - [ ] Día 7: JavaScript desde cero
 - [ ] Día 8: DOM, eventos y validación
