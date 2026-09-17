@@ -1,0 +1,12 @@
+# Bitácora - Día 9: Base de Datos, Conexión Segura y Pruebas de Inyección SQL
+
+## 1. Objetivos Alcanzados
+* Creación de la base de datos relacional `zdtecnoc_db` y poblado exitoso de los 20 registros iniciales en la tabla de productos.
+* Implementación de la conexión mediante PHP y **PDO** (`conexion.php`).
+* Separación de credenciales en un archivo independiente (`credenciales.php`) y protección mediante `.gitignore`.
+* Validación de seguridad en el módulo de autenticación (`login.html`).
+
+## 2. Evidencia de Pruebas de Seguridad (Inyección SQL)
+* **Prueba realizada:** Se ingresó la cadena de prueba clásica de inyección SQL (`' OR '1'='1'`) en los campos de acceso de `login.html`.
+* **Resultado:** El sistema procesó la consulta de forma segura a través de PDO con sentencias preparadas, bloqueando el acceso ilegítimo y protegiendo la base de datos.
+* **Captura de pantalla / Foto:** ![Prueba de inyección SQL](assets/img/inyeccion-sql-segura.jpg)
