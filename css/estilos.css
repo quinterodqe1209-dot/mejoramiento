@@ -233,3 +233,168 @@ p  { font-size: 1rem; }
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
+
+/* ==========================================================================
+   DÍA 6: MOBILE FIRST, MEDIA QUERIES Y MENÚ COLAPSABLE
+   ========================================================================== */
+
+/* 1. Mobile First: Estilos base para celulares (pantallas pequeñas) */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El menú inicia escondido fuera de la pantalla en celulares */
+.panel__menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 60px);
+  background-color: #15231A;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+/* Clase para abrir el menú en celular (Punto 2) */
+.panel__menu.abierto {
+  transform: translateX(0);
+}
+
+/* 2. Puntos de quiebre (Media Queries) */
+
+/* Tablet y Pantallas Mediana (768px o más) */
+@media (min-width: 768px) {
+  .panel {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    grid-template-areas:
+      "barra barra"
+      "menu  contenido"
+      "pie   pie";
+  }
+
+  .panel__menu {
+    position: static;
+    height: auto;
+    transform: none; /* En pantallas grandes el menú siempre se ve */
+  }
+}
+
+/* Computadores Grandes (1440px o más) */
+@media (min-width: 1440px) {
+  .panel__contenido {
+    padding: 2.5rem;
+    max-width: 1400px;
+  }
+}
+
+/* ==========================================================================
+   DÍA 6: MOBILE FIRST, MEDIA QUERIES Y MENÚ COLAPSABLE (CORREGIDO)
+   ========================================================================== */
+
+/* 1. Mobile First Base (Celulares < 768px) */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Evita el desborde horizontal */
+}
+
+/* El menú en celular flota sobre el contenido sin empujarlo */
+.panel__menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 60px);
+  background-color: #15231A;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+}
+
+/* Cuando tiene la clase .abierto se muestra */
+.panel__menu.abierto {
+  transform: translateX(0);
+}
+
+/* Ajuste de contenedor principal para celular */
+.panel__contenido {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Ajuste de tarjetas y componentes para celular */
+.component-grid {
+  display: flex;
+  flex-direction: column; /* En celular van uno debajo de otro */
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-input, .btn-primary {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 2. Media Query para Tablet y Escritorio (>= 768px) */
+@media (min-width: 768px) {
+  .panel {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    grid-template-areas:
+      "barra barra"
+      "menu  contenido"
+      "pie   pie";
+  }
+
+  .panel__menu {
+    position: static;
+    height: auto;
+    transform: none !important; /* Siempre visible en pantallas grandes */
+    box-shadow: none;
+  }
+
+  .component-grid {
+    flex-direction: row; /* En pantallas grandes se alinean al lado */
+    flex-wrap: wrap;
+  }
+}
+
+/* 3. Media Query para Pantallas Grandes (>= 1440px) */
+@media (min-width: 1440px) {
+  .panel__contenido {
+    padding: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Corrección de componentes para vista móvil */
+@media (max-width: 767px) {
+  .component-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .state-box {
+    width: 100%;
+  }
+
+  .form-input, .btn-primary {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}

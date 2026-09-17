@@ -1,0 +1,35 @@
+# Bitácora - Día 6: Implementación Mobile First, Puntos de Quiebre y Guía de Componentes
+
+## 1. Descripción de la Actividad
+Durante la jornada del Día 6 del proyecto **ZDTecnoc**, se llevó a cabo la refactorización y estructuración de la hoja de estilos bajo la metodología **Mobile First**, asegurando que el diseño nazca desde pantallas móviles y escale progresivamente hacia tabletas y escritorios mediante puntos de quiebre definidos. Asimismo, se documentaron los 5 estados interactivos (Normal, Hover, Focus, Active, Disabled) en la guía de componentes (`componentes.html`).
+
+---
+
+## 2. Dificultades / Problemas Encontrados y Soluciones Aplicadas
+
+Durante el proceso de desarrollo y pruebas en entornos reales y simulados, se presentaron los siguientes inconvenientes técnicos:
+
+* **Problema 1: Superposición incorrecta del menú móvil y desborde horizontal.**
+  * *Descripción:* Al activar el menú lateral en pantallas pequeñas, este se posicionaba de forma estática o tapaba de manera rígida el contenido principal, generando además una barra de desplazamiento horizontal indeseada.
+  * *Solución:* Se ajustó la hoja de estilos (`css/estilos.css`) aplicando la propiedad `overflow-x: hidden` al cuerpo del documento y configurando el menú lateral con `position: fixed`, un ancho controlado del 75% (`max-width: 300px`) y una transición fluida mediante `transform: translateX(-100%)`.
+
+* **Problema 2: Desalineación de los componentes de UI en pantallas pequeñas.**
+  * *Descripción:* Las tarjetas de estados para botones y campos de formulario se mantenían en filas horizontales heredadas del diseño de escritorio, lo que provocaba que se salieran de la pantalla del celular.
+  * *Solución:* Se implementó un bloque condicional dentro del diseño Mobile First (`@media (max-width: 767px)`) transformando la clase `.component-grid` en una columna flexible (`flex-direction: column`) con `width: 100%`, forzando a que los inputs y botones se adapten al ancho completo del dispositivo.
+
+* **Problema 3: Restricción de red local (Timeout) en pruebas de dispositivos físicos.**
+  * *Descripción:* Al intentar conectar el celular directamente al servidor local mediante la dirección IP (`192.168.1.42`), las políticas de red y el Firewall de Windows bloquearon la solicitud externa generando un error de conexión agotada (`ERR_CONNECTION_TIMED_OUT`).
+  * *Solución:* Se validó la responsividad utilizando el modo dispositivo de las Herramientas de Desarrollador del navegador (simulando un ancho exacto de 360px) para verificar el comportamiento visual y extraer la evidencia gráfica y de video requerida.
+
+---
+
+## 3. Puntos de Quiebre (Breakpoints) Implementados
+* **Móviles (< 768px):** Enfoque Mobile First con diseño en columna única y menú desplegable flotante.
+* **Tabletas (>= 768px):** Distribución en cuadrícula con CSS Grid (`grid-template-columns: 240px 1fr`) y menú lateral estático visible.
+* **Escritorios (>= 1440px):** Contenedor optimizado con márgenes centrados y mayor espaciado interior (`padding: 2.5rem`).
+
+---
+
+## 4. Evidencias Adjuntas
+* **Video de Interacción Móvil:** `../assets/img/video-movil.mp4`
+* **Página de Componentes:** `../componentes.html`

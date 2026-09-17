@@ -17,7 +17,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 3: HTML5 semántico
 - [x] Día 4: CSS y modelo de caja
 - [x] Día 5: maquetación con Flexbox y Grid
-- [ ] Día 6: diseño responsive
+- [x] Día 6: diseño responsive
 - [ ] Día 7: JavaScript desde cero
 - [ ] Día 8: DOM, eventos y validación
 - [ ] Día 9: PHP y conexión a base de datos
