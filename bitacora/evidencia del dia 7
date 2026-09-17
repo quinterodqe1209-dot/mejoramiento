@@ -1,0 +1,39 @@
+// ==========================================
+// BITÁCORA - DÍA 7: Diferencia entre map y forEach
+// ==========================================
+
+// 1. Diferencias principales:
+// - forEach(): Recorre el arreglo elemento por elemento para ejecutar una acción 
+//   (como imprimir en consola), pero NO devuelve un arreglo nuevo.
+// - map(): Recorre el arreglo y SIEMPRE devuelve un nuevo arreglo transformado, 
+//   con la misma cantidad de elementos pero modificados según lo que le programemos.
+
+
+// 2. Ejemplo propio con los productos de la tienda:
+
+// Tenemos los precios de algunos productos en la tienda
+const preciosProductos = [50000, 120000, 300000];
+
+// Usando forEach: Solo muestra los precios en la consola (no crea nada nuevo)
+console.log("--- Usando forEach ---");
+preciosProductos.forEach(precio => {
+    console.log("Precio analizado: $" + precio);
+});
+
+// Usando map: Crea un NUEVO arreglo aplicando un descuento del 10% a cada precio
+const preciosConDescuento = preciosProductos.map(precio => {
+    return precio * 0.90; 
+});
+
+console.log("--- Usando map (Nuevo arreglo con descuento) ---");
+console.log(preciosConDescuento); 
+// Resultado devuelto: [45000, 108000, 270000]
+
+// En el Día 7 creamos los datos con 15 productos y 8 pedidos en datos-prueba.js, 
+// aplicamos métodos de arreglos (reduce, filter, map) y Intl.NumberFormat en ejercicios.js, 
+// documentamos la diferencia entre map() y forEach() en la bitácora y capturamos los 
+// resultados en la consola del dashboard. Durante el proceso corregimos los errores 
+// de sintaxis en los archivos .js usando comentarios //, evitamos el bloqueo de seguridad 
+// del navegador (file:///) levantando un servidor local con Live Server, solucionamos 
+// la IP inválida escribiendo localhost y reiniciamos el puerto en Visual Studio Code 
+// cuando la conexión fue rechazada.

@@ -18,7 +18,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 4: CSS y modelo de caja
 - [x] Día 5: maquetación con Flexbox y Grid
 - [x] Día 6: diseño responsive
-- [ ] Día 7: JavaScript desde cero
+- [x] Día 7: JavaScript desde cero
 - [ ] Día 8: DOM, eventos y validación
 - [ ] Día 9: PHP y conexión a base de datos
 - [ ] Día 10: inicio de sesión seguro
