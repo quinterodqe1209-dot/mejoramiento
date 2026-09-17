@@ -1,0 +1,23 @@
+Evidencia - Día 8: Integración, DOM y Validaciones
+
+1.Actividades Implementadas
+Renderizado dinámico (datos-prueba.js): Población automática del <tbody> de la tabla de productos mediante manipulación del DOM, eliminando filas estáticas en el HTML.
+Buscador en tiempo real: Filtrado dinámico de la tabla (.filter()) por nombre o categoría en tiempo de ejecución.
+Accesibilidad Web: Configuración de eventos de clic y teclado (Enter con e.preventDefault()) en el botón del menú lateral.
+Validación de Formularios: Sistema robusto de control de errores sin diálogos nativos o alertas intrusivas.
+
+2. Control y Gestión de Errores Programados
+Nombre: Valida si está vacío o contiene menos de 3 caracteres.
+Mensaje: "El nombre debe tener al menos 3 caracteres."
+Precio: Valida si está vacío o si su valor es menor o igual a cero.
+Mensaje: "El precio debe ser mayor a cero."
+Stock: Valida campos vacíos, números negativos o valores que no sean enteros.
+Mensaje: "El stock debe ser un número entero no negativo."
+Categoría: Valida que exista una opción seleccionada en el menú desplegable.
+Mensaje: "Debe seleccionar una categoría."
+(Los mensajes de error se inyectan dinámicamente en color rojo .error-validacion justo debajo de cada campo afectado).
+
+3. Estado de las Entregas
+
+Código Fuente: Actualizado y modularizado en js/ejercicios.js.
+Evidencia en Video: Archivo de video (video.mp4) demostrando el flujo completo del sistema.
