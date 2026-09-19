@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS productos (
     categoria_id INT NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_producto_categoria FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE CASCADE,
     INDEX idx_nombre_prod (nombre)
@@ -49,6 +50,7 @@ CREATE TABLE IF NOT EXISTS productos (
 CREATE TABLE IF NOT EXISTS clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(150) NOT NULL,
+    documento VARCHAR(30) UNIQUE,
     telefono VARCHAR(20),
     correo VARCHAR(100),
     direccion TEXT,

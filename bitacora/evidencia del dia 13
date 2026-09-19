@@ -1,0 +1,30 @@
+# Día 13: CRUD completo y pedidos transaccionales
+
+## Qué hice
+
+- Añadí `productos.activo` para aplicar borrado lógico.
+- Añadí `clientes.documento` con índice único.
+- Separé las consultas en `ProductoModelo.php` y `ClienteModelo.php`.
+- Implementé crear, listar, editar, buscar, paginar y desactivar productos.
+- Implementé crear, listar, editar, buscar, paginar y eliminar clientes.
+- Validé los datos en el servidor con PHP y sentencias preparadas.
+- Implementé el registro de pedidos con cabecera y detalle dentro de una transacción.
+- El pedido comprueba el stock con `FOR UPDATE`, descuenta unidades y confirma todo con `commit()`.
+- Después de guardar se usa POST/Redirect/GET para evitar duplicados al recargar.
+
+## Pruebas realizadas
+
+1. Productos cargó 10 registros por página.
+2. Clientes cargó 10 registros por página.
+3. Se creó un producto de prueba y apareció el aviso de guardado.
+4. Se desactivó el producto y desapareció del listado activo.
+5. Se creó el pedido 16 por $7.000.
+6. El stock del producto pasó de 60 a 59.
+7. Los archivos PHP pasaron `php -l` sin errores.
+
+## Evidencias sugeridas
+
+- `../assets/img/dia13-productos-crud.png`
+- `../assets/img/dia13-clientes-crud.png`
+- `../assets/img/dia13-pedido-transaccion.png`
+- `../assets/img/dia13-validacion-servidor.png`

@@ -1,0 +1,4 @@
+USE zdtecnoc_db;
+
+ALTER TABLE productos ADD COLUMN activo TINYINT(1) NOT NULL DEFAULT 1;
+ALTER TABLE clientes ADD COLUMN documento VARCHAR(30) UNIQUE NULL;

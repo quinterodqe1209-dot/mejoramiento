@@ -312,6 +312,49 @@ p  { font-size: 1rem; }
   outline-offset: 3px;
 }
 
+.acciones-crud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.acciones-crud form {
+  margin: 0;
+}
+
+.boton-accion {
+  display: inline-block;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton-editar {
+  background: var(--info);
+  color: var(--superficie-alta);
+}
+
+.boton-eliminar {
+  background: var(--error);
+  color: var(--superficie-alta);
+}
+
+.boton-accion:hover,
+.boton-accion:focus-visible {
+  filter: brightness(0.88);
+}
+
+.boton-accion:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
 /* ==========================================================================
    DÍA 6: MOBILE FIRST, MEDIA QUERIES Y MENÚ COLAPSABLE
    ========================================================================== */
