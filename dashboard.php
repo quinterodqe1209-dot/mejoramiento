@@ -42,5 +42,21 @@ require __DIR__ . '/app/vistas/parciales/menu.php';
             </article>
         </div>
     </section>
+    <section class="seccion-graficos" aria-labelledby="titulo-graficos">
+        <h2 id="titulo-graficos" class="text-lg">Indicadores gráficos</h2>
+        <form id="filtro-graficos" class="filtro-graficos">
+            <div class="form-group"><label for="desde">Desde</label><input class="form-input" id="desde" type="date" value="<?= date('Y-01-01') ?>" required></div>
+            <div class="form-group"><label for="hasta">Hasta</label><input class="form-input" id="hasta" type="date" value="<?= date('Y-m-d') ?>" required></div>
+            <button class="btn-primary" type="submit">Actualizar gráficos</button>
+        </form>
+        <p id="error-graficos" class="alerta alerta--error" role="alert"></p>
+        <div class="graficos-grid">
+            <article class="grafico-panel"><h3>Ventas por mes</h3><div class="grafico-lienzo"><canvas id="grafico-ventas"></canvas></div></article>
+            <article class="grafico-panel"><h3>Ventas por categoría</h3><div class="grafico-lienzo"><canvas id="grafico-categorias"></canvas></div></article>
+            <article class="grafico-panel grafico-panel--ancho"><h3>Clientes con mayor compra</h3><div class="grafico-lienzo"><canvas id="grafico-clientes"></canvas></div></article>
+        </div>
+    </section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/graficos.js"></script>
 <?php require __DIR__ . '/app/vistas/parciales/pie.php'; ?>

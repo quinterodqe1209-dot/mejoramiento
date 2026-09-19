@@ -25,6 +25,6 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 11: sesiones y control de acceso por roles
 - [x] Día 12: dashboard con menú lateral
 - [x] Día 13: CRUD completo
-- [ ] Día 14: vistas SQL y gráficos con Chart.js
+- [x] Día 14: vistas SQL y gráficos con Chart.js
 - [ ] Día 15: reportes y sustentación final
 

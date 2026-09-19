@@ -1,0 +1,28 @@
+# Día 14: vistas SQL y gráficos con Chart.js
+
+## Qué hice
+
+- Creé `sql/vistas.sql` con vistas para ventas mensuales, ventas por categoría,
+  stock crítico y clientes con mayor compra.
+- Añadí vistas mensuales para que el filtro de fechas afecte categorías y clientes.
+- Creé `api/graficos.php`, protegido por `guardia.php`, con respuesta JSON.
+- Integré Chart.js en `dashboard.php`.
+- Añadí tres gráficos: barras, dona y línea.
+- Añadí filtro `desde` y `hasta` que redibuja los gráficos sin recargar la página.
+- Formateé los valores monetarios con `Intl.NumberFormat` en JavaScript.
+
+## Pruebas realizadas
+
+1. MySQL reconoce las vistas `v_ventas_mes`, `v_ventas_categoria`,
+   `v_stock_critico`, `v_clientes_mayor_compra` y sus vistas mensuales.
+2. Con sesión activa, `api/graficos.php` devuelve JSON con las claves
+   `ventasMes`, `categorias`, `clientes` y `stockCritico`.
+3. Sin sesión, la API redirige al login y no entrega datos.
+4. El dashboard muestra tres canvas de Chart.js.
+5. Cambiar el rango de fechas redibuja los tres gráficos.
+
+## Evidencias sugeridas
+
+- `../assets/img/dia14-dashboard-graficos.png`
+- `../assets/img/dia14-json-api.png`
+- `../assets/img/dia14-vistas-sql.png`

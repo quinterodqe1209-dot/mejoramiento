@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/sesion.php';
+require_once __DIR__ . '/../app/config/config.php';
 
 iniciarSesionSegura();
 
@@ -16,7 +17,7 @@ $expirada = empty($_SESSION['inicio'])
 
 if (!$sesionValida || $expirada) {
     cerrarSesion();
-    header('Location: login.php?m=requiere_ingreso', true, 303);
+    header('Location: ' . BASE_URL . 'login.php?m=requiere_ingreso', true, 303);
     exit;
 }
 
