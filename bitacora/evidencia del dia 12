@@ -1,0 +1,34 @@
+# Día 12: dashboard funcional con menú lateral
+
+## Qué hice
+
+- Creé los parciales `cabecera.php`, `menu.php` y `pie.php`.
+- Centralicé el menú en un arreglo con los roles permitidos.
+- Marqué el enlace actual con `aria-current="page"`.
+- Añadí `aria-controls` y `aria-expanded` al botón del menú.
+- Reemplacé los valores escritos a mano por consultas PDO a MySQL.
+- Mostré productos, pedidos de hoy, ventas de hoy, stock crítico y usuarios activos.
+
+## Cómo está organizado
+
+- `dashboard.php` controla los indicadores y carga los parciales.
+- `app/vistas/parciales/cabecera.php` contiene la parte superior común.
+- `app/vistas/parciales/menu.php` contiene una sola configuración del menú y sus roles.
+- `app/vistas/parciales/pie.php` cierra la plantilla y controla el menú móvil.
+- Cada módulo conserva su guardia de sesión y su permiso de servidor.
+
+El flujo es: página protegida -> `guardia.php` -> consulta PDO -> cabecera -> menú
+por rol -> contenido -> pie.
+
+## Pruebas
+
+1. Administrador: ve Inicio, Productos, Categorías, Clientes, Pedidos, Reportes, Usuarios y Cerrar sesión.
+2. Vendedor: ve Inicio, Productos, Categorías, Clientes, Pedidos y Cerrar sesión.
+3. Consultor: ve Inicio, Productos, Reportes y Cerrar sesión.
+4. El enlace Inicio queda marcado con `aria-current="page"`.
+5. El botón cambia `aria-expanded` de `false` a `true` al hacer clic.
+
+## Evidencias
+
+- `../assets/img/dia12-dashboard-administrador.png`
+- `../assets/img/dia12-menu-vendedor.png`
