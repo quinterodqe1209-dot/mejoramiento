@@ -1,0 +1,27 @@
+# Día 11: manejo de sesiones y control de acceso
+
+## Qué hice
+
+- Creé `sgl/sesion.php` para centralizar la sesión segura.
+- Configuré la cookie con `HttpOnly`, `SameSite=Strict` y `secure` bajo HTTPS.
+- Regeneré el ID después del login con `session_regenerate_id(true)`.
+- Añadí expiración por inactividad de 30 minutos y duración máxima de 8 horas.
+- Creé `sgl/guardia.php` para proteger las páginas privadas.
+- Creé `sgl/salir.php` para destruir la sesión y caducar la cookie.
+- Añadí autorización por roles para proteger `usuarios.php`.
+
+## Pruebas
+
+1. Abrir `dashboard.php` sin sesión: redirige a `login.php`.
+2. Iniciar sesión como administrador: muestra nombre, rol y enlace de usuarios.
+3. Cerrar sesión: destruye la sesión y vuelve al login.
+4. Iniciar como consultor y abrir `usuarios.php`: responde `403`.
+5. Revisar DevTools: la cookie se llama `ZDTL_SESS` y tiene `HttpOnly` y `SameSite=Strict`.
+
+## Evidencias sugeridas
+
+- `dia11-acceso-sin-sesion.png`
+- `dia11-login-administrador.png`
+- `dia11-cierre-sesion.png`
+- `dia11-error-403-consultor.png`
+- `dia11-cookie-segura.png`

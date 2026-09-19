@@ -22,7 +22,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 8: DOM, eventos y validación
 - [x] Día 9: PHP y conexión a base de datos
 - [x] Día 10: inicio de sesión seguro
-- [ ] Día 11: sesiones y control de acceso por roles
+- [x] Día 11: sesiones y control de acceso por roles
 - [ ] Día 12: dashboard con menú lateral
 - [ ] Día 13: CRUD completo
 - [ ] Día 14: vistas SQL y gráficos con Chart.js
