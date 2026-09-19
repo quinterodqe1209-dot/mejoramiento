@@ -1,9 +1,9 @@
 USE zdtecnoc_db;
 
 -- 1. Insertar Usuarios de prueba
-INSERT INTO usuarios (nombre, correo, password, rol) VALUES 
-('Admin Principal', 'admin@zdtecnoc.com', '$2y$10$abcdefghijklmnopqrstuvwx', 'admin'),
-('Empleado Soporte', 'soporte@zdtecnoc.com', '$2y$10$abcdefghijklmnopqrstuvwx', 'empleado');
+INSERT INTO usuarios (nombre, correo, clave_hash, rol, activo) VALUES 
+('Admin Principal', 'admin@zdtecnoc.com', '$2y$10$abcdefghijklmnopqrstuvwx', 'administrador', 1),
+('Vendedor Soporte', 'soporte@zdtecnoc.com', '$2y$10$abcdefghijklmnopqrstuvwx', 'vendedor', 1);
 
 -- 2. Insertar Categorías
 INSERT INTO categorias (nombre, descripcion) VALUES 

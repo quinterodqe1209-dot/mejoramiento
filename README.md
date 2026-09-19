@@ -21,7 +21,7 @@ Proyecto desarrollado como plan de mejoramiento del programa de Análisis y Desa
 - [x] Día 7: JavaScript desde cero
 - [x] Día 8: DOM, eventos y validación
 - [x] Día 9: PHP y conexión a base de datos
-- [ ] Día 10: inicio de sesión seguro
+- [x] Día 10: inicio de sesión seguro
 - [ ] Día 11: sesiones y control de acceso por roles
 - [ ] Día 12: dashboard con menú lateral
 - [ ] Día 13: CRUD completo
@@ -41,3 +41,4 @@ mejoramiento/
 ├── css/
 │   └── tokens.css
 └── README.md
+

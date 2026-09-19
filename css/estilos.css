@@ -95,6 +95,14 @@ p  { font-size: 1rem; }
   margin-bottom: 1.25rem;
 }
 
+.alerta {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--error);
+  background-color: #FBEAEA;
+  color: var(--error);
+}
+
 .form-group label {
   font-weight: 600;
   color: var(--texto);

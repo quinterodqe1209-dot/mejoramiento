@@ -1,0 +1,27 @@
+# Día 10: inicio de sesión seguro
+
+## Qué hice
+
+- Actualicé la tabla `usuarios` para guardar `clave_hash`, `rol`, `activo` y `bloqueado_hasta`.
+- Creé `intentos_acceso` para contar fallos durante quince minutos.
+- Implementé `csrf.php` con un token aleatorio y `hash_equals()`.
+- Conecté `login.html` con el formulario PHP funcional.
+- Creé usuarios de prueba con `password_hash()`.
+
+## Cómo funciona
+
+1. El servidor inicia la sesión con cookie `HttpOnly` y `SameSite=Strict`.
+2. El formulario recibe un token CSRF guardado en la sesión.
+3. PHP valida correo y longitud de la clave.
+4. PHP busca el usuario con una sentencia preparada.
+5. `password_verify()` compara la clave con el hash guardado.
+6. Si es correcto, se regenera el ID de sesión y se guardan id, nombre y rol.
+7. Si falla cinco veces en quince minutos, la cuenta queda bloqueada quince minutos.
+
+## Pruebas
+
+- Ingreso correcto con `admin@zd.com` y `Admin123*`.
+- Contraseña incorrecta: se muestra un mensaje genérico.
+- Envío sin CSRF: se rechaza con respuesta 419.
+- Cinco claves incorrectas: se registra el bloqueo temporal.
+- En phpMyAdmin, `usuarios.clave_hash` debe contener un hash y no la contraseña.

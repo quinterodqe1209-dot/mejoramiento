@@ -7,10 +7,22 @@ CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     correo VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    rol ENUM('admin', 'empleado') DEFAULT 'empleado',
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    clave_hash VARCHAR(255) NOT NULL,
+    rol ENUM('administrador', 'vendedor', 'consultor') DEFAULT 'consultor',
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+    bloqueado_hasta DATETIME NULL,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_correo (correo)
+) ENGINE=InnoDB;
+
+-- Registro de intentos para bloquear una cuenta tras cinco fallos en 15 minutos
+CREATE TABLE IF NOT EXISTS intentos_acceso (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    correo VARCHAR(100) NOT NULL,
+    intentos INT NOT NULL DEFAULT 0,
+    ultimo_intento DATETIME NOT NULL,
+    UNIQUE KEY uq_intento_correo (correo),
+    INDEX idx_ultimo_intento (ultimo_intento)
 ) ENGINE=InnoDB;
 
 -- 2. Tabla de Categorías
