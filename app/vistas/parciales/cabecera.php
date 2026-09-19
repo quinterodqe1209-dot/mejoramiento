@@ -10,6 +10,7 @@ $tituloPagina = $tituloPagina ?? 'ZDTecnoc';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($tituloPagina, ENT_QUOTES, 'UTF-8') ?> | ZDTecnoc</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/estilos.css">
+    <?php if ($tituloPagina === 'Reportes'): ?><link rel="stylesheet" href="<?= BASE_URL ?>css/reporte.css"><?php endif; ?>
 </head>
 <body>
 <div class="panel">

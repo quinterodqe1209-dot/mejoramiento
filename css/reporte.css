@@ -1,0 +1,125 @@
+@page {
+    size: A4 portrait;
+    margin: 14mm 12mm 18mm;
+}
+
+.reporte {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: #fff;
+    color: var(--texto);
+}
+
+.reporte__encabezado {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--color-accion);
+}
+
+.reporte__logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+}
+
+.reporte__marca h1,
+.reporte__marca p,
+.reporte__meta p {
+    margin: 0.15rem 0;
+}
+
+.reporte__marca {
+    flex: 1;
+}
+
+.reporte__meta {
+    text-align: right;
+    font-size: 0.85rem;
+}
+
+.reporte__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: end;
+    margin: 1rem 0;
+}
+
+.reporte__filtros .form-group {
+    margin: 0;
+    min-width: 12rem;
+}
+
+.reporte__acciones {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.reporte__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.reporte__tabla th,
+.reporte__tabla td {
+    padding: 0.55rem;
+    border: 1px solid var(--borde);
+    text-align: left;
+}
+
+.reporte__tabla th {
+    background: var(--color-marca);
+    color: var(--superficie-alta);
+}
+
+.reporte__tabla tfoot td {
+    font-weight: 700;
+    background: var(--color-marca-sua);
+}
+
+.reporte__pie {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--borde);
+    font-size: 0.8rem;
+}
+
+@media print {
+    .panel__barra,
+    .panel__menu,
+    .panel__pie,
+    .reporte__filtros,
+    .reporte__acciones,
+    .no-imprimir {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .reporte {
+        max-width: none;
+        padding: 0;
+    }
+
+    .reporte__encabezado,
+    .reporte__tabla th {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        break-inside: avoid;
+    }
+}

@@ -1,0 +1,25 @@
+# Día 15: reportes y sustentación final
+
+## Qué hice
+
+- Implementé tres reportes en `reportes.php`:
+  ventas por categoría, inventario con stock crítico y pedidos por cliente.
+- Añadí filtros de rango de fechas.
+- Añadí encabezado con logo, nombre del software, fecha, usuario y rol.
+- Añadí fila de totales y tabla imprimible.
+- Añadí exportación CSV con BOM para Excel.
+- Añadí estilos `@media print` para ocultar menú y acciones.
+- La opción `Imprimir / Guardar PDF` permite obtener el PDF desde el navegador.
+
+## Pruebas realizadas
+
+1. El reporte de ventas muestra categorías, unidades, totales y total general.
+2. El reporte de stock crítico muestra productos con inventario bajo.
+3. El reporte de pedidos agrupa compras por cliente.
+4. El filtro cambia el rango de datos sin cambiar de página manualmente.
+5. La exportación CSV responde con `text/csv` y separador `;`.
+6. Solo los roles administrador y consultor pueden abrir reportes.
+
+## Evidencia
+
+- `../assets/img/dia15-reporte-ventas.png`
