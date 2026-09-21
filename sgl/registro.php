@@ -1,6 +1,17 @@
 <?php
 declare(strict_types=1);
 
+// ---------------------------------------------------------------
+// SCRIPT DE INSTALACIÓN — solo accesible desde localhost o CLI.
+// En producción, elimina este archivo o restringe el acceso en
+// la configuración del servidor web (Apache/Nginx).
+// ---------------------------------------------------------------
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'cli';
+if (PHP_SAPI !== 'cli' && !in_array($ip, ['127.0.0.1', '::1'], true)) {
+    http_response_code(403);
+    exit('403 - Acceso denegado. Este script solo está disponible en entorno local.');
+}
+
 require_once __DIR__ . '/conexion.php';
 
 $usuarios = [
