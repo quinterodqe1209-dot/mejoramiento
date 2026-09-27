@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=login.php">
-  <title>ZDTecnoc - Redirigiendo</title>
+    <meta charset="UTF-8">
+    <title>Abriendo ZDTecnoc...</title>
+    <!-- Redirige automáticamente al servidor XAMPP donde funciona el PHP -->
+    <meta http-equiv="refresh" content="0; url=http://localhost/mejoramiento/login.php">
 </head>
 <body>
-  <p>Abriendo el inicio de sesión...</p>
-  <p><a href="login.php">Continuar</a></p>
+    <p>Conectando con el servidor PHP local... Si no redirige, <a href="http://localhost/mejoramiento/login.php">haz clic aquí</a>.</p>
+    <script>
+        // Redirección inmediata por JS también
+        window.location.href = "http://localhost/mejoramiento/login.php";
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ require_once __DIR__ . '/sgl/conexion.php';
 require_once __DIR__ . '/sgl/csrf.php';
 require_once __DIR__ . '/app/modelos/ProductoModelo.php';
 
-exigirRol('administrador', 'vendedor');
+exigirRol('administrador', 'vendedor', 'consultor');
 $modelo = new ProductoModelo($conexion);
 $errores = [];
 $busqueda = trim((string)($_GET['busqueda'] ?? ''));
@@ -19,7 +19,10 @@ $datosFormulario = [
     'stock' => '',
 ];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$rol = $_SESSION['usuario']['rol'];
+$puedeEditar = ($rol === 'administrador' || $rol === 'vendedor');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $puedeEditar) {
     if (!validarCsrf($_POST['csrf'] ?? null)) {
         http_response_code(419);
         exit('Solicitud no válida.');
@@ -75,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: productos.php', true, 303);
         exit;
     }
-} elseif (isset($_GET['editar'])) {
+} elseif (isset($_GET['editar']) && $puedeEditar) {
     $producto = $modelo->obtener((int)$_GET['editar']);
     if ($producto) {
         $datosFormulario = [
@@ -101,6 +104,7 @@ require __DIR__ . '/app/vistas/parciales/cabecera.php';
 require __DIR__ . '/app/vistas/parciales/menu.php';
 ?>
 <main class="panel__contenido">
+    <?php if ($puedeEditar): ?>
     <section aria-labelledby="titulo-productos">
         <h2 id="titulo-productos" class="text-lg">Gestión de productos</h2>
         <?php if ($aviso !== ''): ?><p class="alerta alerta--exito" role="status"><?= htmlspecialchars($aviso, ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
@@ -117,11 +121,50 @@ require __DIR__ . '/app/vistas/parciales/menu.php';
             <button class="btn-primary" type="submit"><?= $datosFormulario['id'] ? 'Actualizar' : 'Guardar' ?></button>
         </form>
     </section>
+    <?php else: ?>
+    <section aria-labelledby="titulo-productos" style="margin-bottom: 2rem; padding: 1.5rem; background-color: var(--color-marca-sua); border-radius: 8px;">
+        <h2 id="titulo-productos" class="text-lg" style="color: var(--color-marca);">Catálogo de Productos</h2>
+        <p class="texto-tenue">Explora todos los artículos disponibles en nuestra tienda.</p>
+    </section>
+    <?php endif; ?>
     <section aria-labelledby="lista-productos">
         <h3 id="lista-productos">Listado</h3>
         <form method="get"><label for="busqueda">Buscar producto</label><input class="form-input" id="busqueda" name="busqueda" value="<?= htmlspecialchars($busqueda, ENT_QUOTES, 'UTF-8') ?>"><button class="btn-primary" type="submit">Buscar</button></form>
-        <div class="table-container"><table class="products-table"><caption>Productos activos</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Categoría</th><th scope="col">Precio</th><th scope="col">Stock</th><th scope="col">Acciones</th></tr></thead><tbody>
-        <?php foreach ($productos as $producto): ?><tr><td><?= htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8') ?></td><td><?= htmlspecialchars($producto['categoria'], ENT_QUOTES, 'UTF-8') ?></td><td>$ <?= number_format((float)$producto['precio'], 0, ',', '.') ?></td><td><?= (int)$producto['stock'] ?></td><td class="acciones-crud"><a class="boton-accion boton-editar" href="?editar=<?= (int)$producto['id'] ?>">Editar</a><form method="post" onsubmit="return confirm('¿Deseas desactivar este producto?');"><input type="hidden" name="csrf" value="<?= htmlspecialchars(tokenCsrf(), ENT_QUOTES, 'UTF-8') ?>"><input type="hidden" name="accion" value="eliminar"><input type="hidden" name="id" value="<?= (int)$producto['id'] ?>"><button class="boton-accion boton-eliminar" type="submit">Eliminar</button></form></td></tr><?php endforeach; ?></tbody></table></div>
+        <div class="table-container">
+            <table class="products-table">
+                <caption>Productos activos</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Stock</th>
+                        <?php if ($puedeEditar): ?><th scope="col">Acciones</th><?php endif; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($productos as $producto): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8') ?></td>
+                        <td><?= htmlspecialchars($producto['categoria'], ENT_QUOTES, 'UTF-8') ?></td>
+                        <td>$ <?= number_format((float)$producto['precio'], 0, ',', '.') ?></td>
+                        <td><?= (int)$producto['stock'] ?></td>
+                        <?php if ($puedeEditar): ?>
+                        <td class="acciones-crud">
+                            <a class="boton-accion boton-editar" href="?editar=<?= (int)$producto['id'] ?>">Editar</a>
+                            <form method="post" onsubmit="return confirm('¿Deseas desactivar este producto?');" style="display:inline-block;">
+                                <input type="hidden" name="csrf" value="<?= htmlspecialchars(tokenCsrf(), ENT_QUOTES, 'UTF-8') ?>">
+                                <input type="hidden" name="accion" value="eliminar">
+                                <input type="hidden" name="id" value="<?= (int)$producto['id'] ?>">
+                                <button class="boton-accion boton-eliminar" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                        <?php endif; ?>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
         <nav aria-label="Paginación"><p>Página <?= $pagina ?> de <?= $paginas ?></p><?php if ($pagina > 1): ?><a href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= urlencode($busqueda) ?>">Anterior</a><?php endif; ?> <?php if ($pagina < $paginas): ?><a href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= urlencode($busqueda) ?>">Siguiente</a><?php endif; ?></nav>
     </section>
 </main>
